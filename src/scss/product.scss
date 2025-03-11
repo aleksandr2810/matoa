@@ -1,0 +1,435 @@
+.product {
+	@include adaptiveValue("padding-top", 138, 100);
+
+	&__breadcrambs {
+		@include adaptiveValue("margin-bottom", 45, 25);
+	}
+
+	&__body {
+		@include adaptiveValue("margin-bottom", 75, 40);
+	}
+
+	&__info {
+		@include adaptiveValue("margin-bottom", 100, 20);
+	}
+
+	&__relate {
+		@include adaptiveValue("margin-bottom", 95, 30);
+	}
+
+	&__clients {
+	}
+}
+
+//=============================================================
+
+.body-product {
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: rem(80);
+		row-gap: rem(25);
+		@media (max-width: em($containerWidth)) {
+			grid-template-columns: auto;
+		}
+	}
+
+	&__images {
+		min-width: 0;
+		position: relative;
+		display: flex;
+		align-items: center;
+		padding: rem(24) 0;
+		flex-direction: row-reverse;
+		&::before {
+			content: "";
+			position: absolute;
+			height: 100%;
+			width: 200%;
+			top: 0;
+			right: 0;
+			background-color: $orangeLiteColor;
+			transform: translate(-10%, 0px);
+		}
+		@media (max-width: em(600)) {
+			display: block;
+		}
+	}
+
+	&__content {
+		padding: rem(24) 0;
+		@media (max-width: em($containerWidth)) {
+			padding: 0;
+		}
+	}
+
+	&__title {
+		font-family: "Taviraj";
+		@include adaptiveValue("font-size", 60, 34);
+		line-height: 1.33;
+		letter-spacing: 0.02em;
+		color: $darkColor;
+		&:not(:last-child) {
+			margin-bottom: rem(8);
+		}
+	}
+
+	&__price {
+		&:not(:last-child) {
+			margin-bottom: rem(16);
+		}
+	}
+
+	&__model {
+		&:not(:last-child) {
+			margin-bottom: rem(40);
+		}
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: rem(16);
+		flex-wrap: wrap;
+		@media (max-width: em(600)) {
+			flex-direction: column;
+			align-items: stretch;
+		}
+	}
+
+	&__quantity {
+		flex: 0 0 rem(120);
+		@media (max-width: em(600)) {
+			flex: 1 1 auto;
+		}
+	}
+
+	&__add-to-cart {
+		flex-shrink: 0;
+	}
+
+	&__cicil {
+	}
+}
+.price-product {
+	font-family: "Taviraj";
+	&__old {
+		position: relative;
+		padding: 0 rem(2);
+		font-size: rem(20);
+		line-height: 1.4;
+		letter-spacing: 0.02em;
+		display: inline-block;
+		&:not(:last-child) {
+			margin-bottom: rem(2);
+		}
+		&::after {
+			content: "";
+			width: 100%;
+			height: rem(1);
+			position: absolute;
+			left: 0;
+			top: 50%;
+			background-color: $orangeColor;
+		}
+	}
+
+	&__value {
+		font-weight: 500;
+		font-size: rem(24);
+		line-height: math.div(41, 24);
+		color: $darkColor;
+	}
+}
+.model-product {
+	&__label {
+		font-family: "Taviraj";
+		font-weight: 600;
+		line-height: 1.68;
+		letter-spacing: 0.02em;
+		color: $darkColor;
+		&:not(:last-child) {
+			margin-bottom: rem(8);
+		}
+	}
+
+	&__options {
+		display: flex;
+		gap: rem(16);
+		align-items: flex-start;
+		flex-wrap: wrap;
+	}
+
+	&__option {
+	}
+}
+.option-product {
+	flex: 0 0 rem(55);
+	&__input {
+		position: absolute;
+		width: 0;
+		left: 0;
+		top: 0;
+		opacity: 0;
+		&:checked + .option-product__label {
+			opacity: 1;
+		}
+	}
+
+	&__label {
+		height: rem(55);
+		border-radius: 50%;
+		overflow: hidden;
+		cursor: pointer;
+		display: block;
+		opacity: 0.5;
+		transition: opacity 0.3s ease 0s;
+		position: relative;
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+		}
+	}
+}
+.images-preview {
+	min-width: 0;
+	flex: 0 0 percent(206, 555);
+
+	&__slider {
+		@media (min-width: em(600)) {
+			height: rem(480);
+		}
+	}
+
+	&__wrapper {
+	}
+
+	&__slide {
+		cursor: pointer;
+		opacity: 0.5;
+		text-align: center;
+		transition: opacity 0.3s ease 0s;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+		&.swiper-slide-thumb-active {
+			opacity: 1;
+		}
+	}
+}
+
+.images-product {
+	min-width: 0;
+	flex: 1 1 auto;
+
+	&__slider {
+		min-height: 100%;
+		display: flex;
+	}
+
+	&__wrapper {
+	}
+
+	&__slide {
+		text-align: center;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+}
+
+//===============================================================
+
+.info-product {
+	&__container {
+	}
+
+	&__tabs {
+	}
+
+	&__navigation {
+		display: flex;
+		column-gap: rem(20);
+		row-gap: rem(10);
+		justify-content: space-between;
+		padding-bottom: rem(12);
+		flex-wrap: wrap;
+		border-bottom: 1px solid #999999;
+		@include adaptiveValue("padding-left", 32, 0);
+		@include adaptiveValue("padding-right", 32, 0);
+		@media (max-width: $mobileSmall) {
+			justify-content: center;
+		}
+	}
+
+	&__title {
+		font-family: "Taviraj";
+		font-weight: 600;
+		font-size: rem(20);
+		line-height: 1.6;
+		letter-spacing: 0.02em;
+		color: #999999;
+		position: relative;
+		&._tab-active {
+			color: $orangeColor;
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				bottom: rem(-4);
+				background-color: $orangeColor;
+				left: 0;
+				height: rem(1);
+			}
+		}
+	}
+
+	&__content {
+	}
+
+	&__body {
+		padding-bottom: rem(24);
+		padding-top: rem(24);
+		@include adaptiveValue("padding-left", 32, 0);
+		@include adaptiveValue("padding-right", 32, 0);
+	}
+
+	&__label {
+		font-family: "Taviraj";
+		font-size: rem(24);
+		line-height: 1.33;
+		letter-spacing: 0.02em;
+		color: $darkColor;
+		margin-bottom: rem(8);
+	}
+
+	&__text {
+		&:not(:last-child) {
+			margin-bottom: rem(15);
+		}
+		p {
+			line-height: 1.75;
+			letter-spacing: 0.02em;
+			color: #555555;
+			&:not(:last-child) {
+				margin-bottom: rem(15);
+			}
+		}
+	}
+	&__image {
+		text-align: center;
+		img {
+			max-width: 100%;
+		}
+	}
+}
+
+//===============================================================
+
+.relate {
+	&__container {
+	}
+
+	&__title {
+		@include adaptiveValue("margin-bottom", 62, 30);
+	}
+
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: rem(30);
+		row-gap: rem(40);
+		@media (max-width:$tablet){
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width:$mobile){
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+
+	&__item {
+	}
+}
+
+.item-relate {
+	position: relative;
+	background-color: #fff;
+	padding: rem(46) rem(24) rem(24) rem(24);
+
+	&__labels {
+		position: absolute;
+		right: rem(24);
+		top: rem(-17);
+		display: grid;
+		gap: rem(5);
+		z-index: 2;
+	}
+
+	&__label {
+		text-align: center;
+		font-family: "Taviraj";
+		font-weight: 500;
+		line-height: 1.5;
+		color: #fff;
+		padding: rem(5) rem(17);
+		text-transform: uppercase;
+		&_sale {
+			background-color: $orangeColor;
+		}
+		&_new {
+			background-color: #01522D;
+		}
+	}
+
+	&__image-ibg {
+		display: block;
+		padding-bottom: percent(221, 207);
+	}
+
+	&__title {
+		font-family: "Taviraj";
+		font-weight: 500;
+		font-size: rem(24);
+		line-height: 1.33;
+		color: $darkColor;
+		&:not(:last-child) {
+			margin-bottom: rem(12);
+		}
+	}
+
+	&__link-title {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__old-price {
+		position: relative;
+		padding: 0 rem(2);
+		display: inline-block;
+		&::after {
+			content: "";
+			width: 100%;
+			height: rem(1);
+			position: absolute;
+			top: 50%;
+			left: 0;
+			background-color: $orangeColor;
+		}
+	}
+
+	&__price {
+		font-family: "Taviraj";
+		font-size: rem(24);
+		line-height: 1.33;
+		color: $darkColor;
+	}
+}
